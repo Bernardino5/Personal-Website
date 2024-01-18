@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="Bev.css">
+    <meta charset="UTF-8">
+    <title> MY PROFILE </title>
+    <style>
+     body {
+    background-image: url('Bg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+	}
+
+	.profile-button {
+   	 margin-top: 10px;
+    	text-align: center;
+    	position: absolute;
+    	top: 20px;
+    	left: 50%;
+   	 transform: translateX(-50%);
+	}
+
+	img,
+	h1,
+	p {
+  	  align-self: center;
+   	 max-width: 100%;
+    	transition: width 0.5s; 
+	}
+
+	p {
+    	text-align: center;
+    	max-width: 600px;
+    	margin: 0 auto;
+	}
+
+	.content {
+    	margin-top: 10px;
+    	text-align: left;
+    	display: none;
+	}
+
+	.profile-button button {
+    	margin: 0 10px;
+	}
+
+	(max-width: 600px) {
+    	body {
+        padding: 10px;
+   	 }
+
+    	.profile-button {
+        top: 10px;
+   	 }
+
+    	img {
+        width: 100%;
+    	}
+
+   	 p {
+        max-width: 100%;
+    }
+}	
+    </style>
+</head>
+
+<body>
+    <img src="Bev.png" alt="Bev.png" width="200" height="300">
+    <h1> Welcome to My Profile! </h1>
+    <p> Hello, I'm Beverly Bernardino 2nd-year college student taking BSIT- MI at National University. My goal is to become a web developer, and I am confident that with perseverance and trust in God, I will achieve this dream. It's important to not only pray but also take action, as God guides us in our efforts to pursue our aspirations. Let's work hard and stay committed to our dreams.  </p>
+    <div class="profile-button">
+        <button onclick="showContent('Home')">Home</button>
+        <button onclick="showContent('About me')">About me</button>
+        <button onclick="showContent('Skills')">Skills</button>
+        <button onclick="showContent('Contact')">Contact</button>
+        <button onclick="showContent('Social Media')">Social Media</button>
+    </div>
+    <div id="about-content" class="content"></div>
+    <div id="skills-content" class="content"></div>
+    <div id="contact-content" class="content"></div>
+    <div id="social-media-content" class="content"></div>
+
+    <script>
+        function showContent(page) {
+            var elementsToHide = [document.querySelector('h1'), document.querySelector('p')];
+
+            elementsToHide.forEach(function (element) {
+                element.style.display = 'none';
+            });
+
+            var aboutContent = document.getElementById('about-content');
+            var skillsContent = document.getElementById('skills-content');
+            var contactContent = document.getElementById('contact-content');
+            var socialMediaContent = document.getElementById('social-media-content');
+
+            aboutContent.style.display = 'none';
+            skillsContent.style.display = 'none';
+            contactContent.style.display = 'none';
+            socialMediaContent.style.display = 'none';
+
+            if (page === 'About me') {
+                aboutContent.innerHTML = "<p>Date of Birth: February 5, 2004</p>";
+                aboutContent.innerHTML += "<p>Age: 19</p>";
+                aboutContent.innerHTML += "<p>Status: Single";
+		aboutContent.innerHTML += "<p>Religion: Roman Catholic";
+		aboutContent.innerHTML += "<p>Nationality: Filipino";
+                aboutContent.innerHTML += "<p><b>EDUCATION:</b></p>";
+                aboutContent.innerHTML += "<p>Junior high graduated at San Bartolome High School</p>";
+                aboutContent.innerHTML += "<p>Senior high graduated at Dr. Carlos S. Lanting College</p>";
+                aboutContent.innerHTML += "<p>BSIT-MI 2nd year College at National University</p>";
+		aboutContent.innerHTML += "<p><b>HOBBY:</b></p>";
+		aboutContent.innerHTML += "<p>Playing Mobile Legend</p>";
+		aboutContent.innerHTML += "<p>Watching Volleyball</p>";
+                aboutContent.style.display = 'block';
+          } else if (page === 'Skills') {
+    		skillsContent.innerHTML = "<p>Basic Flairtending</p>";
+    		skillsContent.innerHTML += "<p>Basic fixing broken gadgets and appliances</p>";
+   		skillsContent.innerHTML += "<p>Communication skills</p>";
+    		skillsContent.innerHTML += "<p>Time management</p>";
+		var videoElement = document.createElement('video');
+    		videoElement.width = 400;
+    		videoElement.height = 300;
+    		videoElement.controls = true;
+    		videoElement.style.margin = 'auto';
+		var sourceElement = document.createElement('source');
+    		sourceElement.src = 'Bev.mp4';
+   		sourceElement.type = 'video/mp4';
+		videoElement.appendChild(sourceElement);
+    		skillsContent.appendChild(videoElement);
+    		skillsContent.style.display = 'block';
+            } else if (page === 'Contact') {
+                contactContent.innerHTML = "<p>Email: bernardinobeverly3@gmail.com</p>";
+                contactContent.innerHTML += "<p>Teams: <a href='https://teams.microsoft.com/v2/' target='_blank'>Beverly Bernardino</a></p>";
+                contactContent.style.display = 'block';
+            } else if (page === 'Social Media') {
+                socialMediaContent.innerHTML = "<p>Connect with me on social media:</p>";
+                socialMediaContent.innerHTML += "<p>Facebook: <a href='https://www.facebook.com/profile.php?id=100004815435780' target='_blank'>Beverly Bernardino</a></p>";
+                socialMediaContent.innerHTML += "<p>Tiktok: <a href='https://www.tiktok.com/@youucantfindbeverlyyyy?is_from_webapp=1&sender_device=pc' target='_blank'>youucantfindbeverlyyyy</a></p>";
+                // Add more social media links as needed
+                socialMediaContent.style.display = 'block';
+            } else if (page === 'Home') {
+                elementsToHide.forEach(function (element) {
+                    element.style.display = 'block';
+
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
